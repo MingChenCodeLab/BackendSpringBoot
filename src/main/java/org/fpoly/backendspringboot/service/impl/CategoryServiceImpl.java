@@ -1,6 +1,7 @@
 package org.fpoly.backendspringboot.service.impl;
 
 import org.fpoly.backendspringboot.model.entity.Category;
+import org.fpoly.backendspringboot.model.entity.Product;
 import org.fpoly.backendspringboot.repository.CategoryRepository;
 import org.fpoly.backendspringboot.service.CategoryService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -20,8 +21,13 @@ public class CategoryServiceImpl implements CategoryService {
 
     @Override
     public Optional<List<Category>> findAll() {
-        System.out.println("abc");
         List<Category> result = categoryRepository.findAll();
         return Optional.of(result);
     }
+
+    @Override
+    public Optional<Category> findById(Long categoryId) {
+        return categoryRepository.findById(categoryId);
+    }
+
 }
